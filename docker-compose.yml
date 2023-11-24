@@ -1,0 +1,21 @@
+version: '3'
+services:
+  tuplesapi:
+    container_name: tuples_api
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      ENV: PRODUCTION
+      APP_HOST: 0.0.0.0
+      APP_PORT: 8000
+      DB_DATABASE: tuples
+      DB_USER: root
+      DB_PASS: Olorin@2022
+      DB_HOST: host.docker.internal
+      DB_PORT: 3306
+    ports:
+      - "8000:8000"
+networks:
+  app-network:
+    driver: bridge

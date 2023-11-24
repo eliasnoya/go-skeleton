@@ -1,0 +1,18 @@
+package {{.PkgName}}
+
+import (
+    "time"
+    "gorm.io/gorm"
+)
+
+type {{.ModelName}} struct {
+    ID uint `gorm:"primaryKey"`
+    // Work Here
+    CreatedAt time.Time
+    UpdatedAt time.Time
+    DeletedAt gorm.DeletedAt
+}
+
+func ({{.ModelVar}} *{{.ModelName}}) TableName() string {
+    return "{{.TableName}}"
+}
